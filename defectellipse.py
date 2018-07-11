@@ -1,126 +1,84 @@
+
 import csv
-import matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+from PIL import Image
+import skimage.io 
+import os
 import pandas as pd
 
-#reach into the text file and take defect information and make it available for the ellipse maker...?
+
+
+#need ellipse drawing tood defined
+#needs something to relate the txt output to extracted ellipse objects
 
 
 
 
-#text reader widget
-	#create defect classification info for the ellipse maker
+def parse_csv(filename):
 
-#CSV READER TOOL#
+	for file in os.listdir(os.path.join(mainfolder,folder)):
+			datasheet = pd.read_csv(os.path.join(mainfolder, os.path.join(folder, file)))
 
-
-#h= x
-#k= y
-# angle = theta
-#defect number
-
-data = pd.read_csv("csv_name.csv")
-
-mainfolder = "C:\\NextGen\\Resultlogstxt\\measurement table" 
-for folder in os.listdir(mainfolder):
-
-	for file in os.listdir(folder):
-		datasheet = pd.read_csv(os.path.join(mainfolder, os.path.join(folder, file)))
-
-   		major_axis = datasheet['X'] 
-   		minor_axis = datasheet['Y']
-   		theta = datasheet['Angle']
-   		h = pd.read_csv(os.path.join(folder, file))
-   		k= pd.read_csv(os.path.join(folder, file))
-
-   		
-   		form = 
-   		tg = datasheet['Property Tg']
+			major_axis = datasheet['Major'] 
+			minor_axis = datasheet['Minor']
+			theta = datasheet['Angle']
+			h = datasheet['X']
+			k = datasheet['Y']
+			label = pd.read_csv(os.path.join(mainfolder, os.path.join(folder, file)), usecols=[0])
 
 
+def parsetext(filename):
+	with open(filename) as f:
+			defectTypes = {}
+			for i in range(3):
+				f.readline()
+				line = f.readline()
+				defectTypes[i] = line.strip().split()
+				for j in range(len(defectTypes[i])):
+					defectTypes[i][j] = int(defectTypes[i][j])
+				f.readline()
+				print(defectTypes)
+				
 
-
-
-def main():
+#mainfolder = "C:\\NextGen\\Resultlogstxt\\logs\\all_logs\\" 
+#for folder in os.listdir(mainfolder):
+	#print(folder)
+		#for file in folder
+			#parsetxt()
 
 
 
-	"""
-	creates masks for all my TIFFS
+with open('C:\\NextGen\\Resultlogstxt\\Logs\\') as f:
+    filename = f.readline()[:-5]
+   
+    while filename:
+        print(filename)
+        filetxt = 'dataset/txt/' + filename + '_log.txt'
+        #filecsv = 'dataset/csv/' + filename + '_results.csv'
+        
+        defectTypes_gt = parsetxt(filetxt)
+        #print(defectTypes_gt)
+        labels_gt = parsecsv(filecsv, defectTypes_gt)
+        outfile = filename + '.txt'
+        
+        fout = open(outfile, mode = 'w+')
+        
+        for i in range(1, len(labels_gt) + 1):
+            if(labels_gt[i][0] == 0 or labels_gt[i][0] == 1 or labels_gt[i][0] == 2 ):
+                mylist = calculateBoundingBoxes(labels_gt[i][0], labels_gt[i][1], labels_gt[i][2], labels_gt[i][3], labels_gt[i][4])
+            fout.write(str(mylist[0]) +' ' + str(mylist[1]) + ' ' + str(mylist[2]) + ' ' + str(mylist[3]) + ' '+ str(mylist[4]) + '\n')
 
-	"""
-	#read in all files
-	#extract labels from txts
-	#extract a,b, theta, h ,k and label from csvs.
-		#define elipse creator object
+        fout.close()
+        filename = f.readline()[:-5]
+
 	
-	#patch creation! 
-		#combine labels from txt with defect type.
-
-	#write info to JSON
 
 
 
 
+#mainfoldert = "C:\\NextGen\\Resultlogstxt\\Logs\\"
+#for folder in os.listdir(mainfoldert):
 
-
-#csv reader widget
-def csv_reader():
-	with open(filename) as lbl:
-
-	"""
-	reads the csv files for a,b, theta, h ,k and label.
-
-	"""
-
-
-	#create the ellipse maker from a,b, theta, h ,k and label.
-
-
-
-
-def parsetxt(file)
-	with open(filename) as ft:
-		defectType = {}
-		for i in range(3):
-			ft.readline()
-			line = ft.readline
-			defectTypes[i][j] = line.strip().strip()
-			for j in range(len(defectTypes[i]))
-				defectTypes[i][j] = int(defectTypes[i][j])
-			ft.readline()
-		return defectTypes
-
-
-
-
-
-
-with open(file) as fc:
-	reader = csv.reader(f)
-	
-	
-	temp = 0
-	for row in reader:
-		if temp == 0:
-			temp = 1 
-		else:
-			defect_number = int(row[0])
-			h = float(row[5])
-			k = float(row[6])
-			angle = float(row[15])
-
-
-
-
-if __name__ == '__main__':
-	main()
-
-
-
-
-		
-
-
-
-
+#BLOCK 3
 
