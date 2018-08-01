@@ -4,33 +4,33 @@ UW-Madsion_Wei_Yuhan_Jake
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+The code is adapted from: https://github.com/matterport/Mask_RCNN.git
+You can refer to their repository to compare all the changes
 
 ### Prerequisites
 
 What things you need to install the software and how to install them
 
 ```
+python 3.6
+```
+```
 Everything in requirment.txt
 ```
 
-### Installing
+### Setups
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Change root directory in balloon.py, subTest.sh
 
 ```
-Give the example
+whao -> your directory
 ```
 
-And repeat
+### Dataset Preparation ( You can prepare your own dataset using FIJI image or use our dataset)
 
 ```
-until finished
-```
 
-End with an example of getting some data out of the system or using it for a little demo
+```
 
 ## Running the tests
 
