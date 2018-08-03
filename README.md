@@ -32,22 +32,19 @@ whao -> your directory
 https://drive.google.com/file/d/1zl0AuT6MEuHdNQVJ-4sDeMRWMNt9hMJT/view?usp=sharing
 ```
 
-## Built With
+## Run With
 
 * [SBEL](http://sbel.wisc.edu/Resources/Hardware/) - GPU used
 
 ## Authors
 
-* **Mingren Shen** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Wei Hao**
+* **Yuhan Liu**
+* **Jacob Greaves**
+* **Mingren Shen**
 
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* The code is adapted from: https://github.com/matterport/Mask_RCNN.git
 
